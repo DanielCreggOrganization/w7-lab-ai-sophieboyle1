@@ -316,8 +316,10 @@ graph TD
 
 ### Step 6: Creating the Service
 
-1. Create new folder: `src/app/services`
-2. Create new file: `src/app/services/gemini-ai.service.ts`
+1. Create new service called ``gemini-ai`` and place it in the services folder:
+```bash
+ionic generate service services/gemini-ai
+```
 
 ```typescript
 import { Injectable } from '@angular/core';
