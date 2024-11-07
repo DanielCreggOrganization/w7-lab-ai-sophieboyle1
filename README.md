@@ -49,7 +49,13 @@ npm install @google/generative-ai
 ```
 
 ### Step 3: Add Environment Configuration
-Create a new file `src/environments/environment.ts`:
+Append the following lines to the bottom of the `.gitignore` file. This is very important, as it prevents your API key from being saved to GitHub where bad actors could use it maliciously.  
+```bash
+# Environment files
+/src/environments/environment.ts
+```
+
+Update the `src/environments/environment.ts` file with your API key.
 ```typescript
 export const environment = {
   production: false,
