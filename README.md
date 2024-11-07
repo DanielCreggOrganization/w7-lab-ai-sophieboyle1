@@ -1,4 +1,4 @@
-# Week 7 Lab: AI
+# Week 7 Lab: AI Recipe Generator
 
 ## Overview
 In this lab, you'll create an app that generates recipes from pictures of baked goods using AI. You'll learn about:
@@ -6,6 +6,33 @@ In this lab, you'll create an app that generates recipes from pictures of baked 
 - Handling images
 - Using AI services
 - Creating Angular services
+
+## Project Architecture
+Here's how our app will be structured:
+
+```mermaid
+graph TD
+    A[Baking App] --> B[Home Page]
+    B --> C[UI Components]
+    B --> D[AI Integration]
+    C --> E[Image Selection]
+    C --> F[Recipe Display]
+    D --> G[Image Processing]
+    D --> H[Gemini AI Service]
+    H --> I[Recipe Generation]
+```
+
+## Component and Data Flow
+This diagram shows how data moves through our application:
+
+```mermaid
+graph LR
+    A[Template] -->|User Input| B[Component]
+    B -->|Image Selection| C[Image Processing]
+    C -->|Base64| D[AI Service]
+    D -->|Recipe| B
+    B -->|Display| A
+```
 
 ## Project Setup
 
@@ -31,6 +58,25 @@ export const environment = {
 ```
 
 ## Building the App
+
+### Understanding Component Interaction
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant C as Component
+    participant S as Service
+    participant AI as Gemini AI
+    
+    U->>C: Select Image
+    U->>C: Enter Prompt
+    U->>C: Click Generate
+    C->>S: Process Image
+    S->>AI: Send Request
+    AI->>S: Return Recipe
+    S->>C: Return Text
+    C->>U: Display Recipe
+```
 
 ### Step 1: Update Component Imports
 Open `src/app/home/home.page.ts` and replace its contents with:
@@ -179,6 +225,19 @@ Replace `src/app/home/home.page.html` with:
    - `baked_goods_2.jpg`
    - `baked_goods_3.jpg`
 
+### Understanding Application States
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Loading: Click Generate
+    Loading --> Processing: Image Converted
+    Processing --> DisplayingRecipe: AI Response
+    DisplayingRecipe --> Idle: New Selection
+    Loading --> Error: Fail
+    Error --> Idle: Try Again
+```
+
 ### Step 4: Add Initial Submit Method
 Add this method to your HomePage class:
 
@@ -237,9 +296,19 @@ const result = await model.generateContent({
 this.output = result.response.text();
 ```
 
-### Step 6: Creating the Service
+### Service Architecture
 
-Now let's organize our code better by moving the AI logic to a service!
+```mermaid
+graph TD
+    A[Component] --> B[GeminiAiService]
+    B --> C[Image Processing]
+    B --> D[AI Integration]
+    C --> E[Base64 Conversion]
+    D --> F[Recipe Generation]
+    F --> A
+```
+
+### Step 6: Creating the Service
 
 1. Create new folder: `src/app/services`
 2. Create new file: `src/app/services/gemini-ai.service.ts`
@@ -320,7 +389,21 @@ ionic serve
    - The generate button works
    - You get recipe output
 
-## Common Issues
+## Common Issues and Solutions
+
+```mermaid
+graph TD
+    A[Common Issues] --> B[Image Issues]
+    A --> C[AI Issues]
+    A --> D[Service Issues]
+    B --> E[Check Assets Path]
+    B --> F[Verify Filenames]
+    C --> G[Verify API Key]
+    C --> H[Check Console]
+    D --> I[Check Imports]
+    D --> J[Verify Constructor]
+```
+
 1. If images don't show:
    - Check the assets folder path
    - Check image filenames
