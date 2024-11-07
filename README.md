@@ -1,4 +1,4 @@
-# Week 7 Lab: Building an AI Recipe Generator with Ionic and Gemini AI
+# Week 7 Lab: AI
 
 ## Overview
 In this lab, you'll create an app that generates recipes from pictures of baked goods using AI. You'll learn about:
