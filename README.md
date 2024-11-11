@@ -422,12 +422,11 @@ graph TD
    - Check import paths
    - Make sure constructor is added
 
-## Bonus Features
-If you finish early:
+## Finishing Features
 1. Add a "Copy Recipe" button
 2. Add loading animations
 3. Add error handling
-4. Make the images look better
+4. Add 3 more images
 
 ## What You've Learned
 - Creating an Ionic app
