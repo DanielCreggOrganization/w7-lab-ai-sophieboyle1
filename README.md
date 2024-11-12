@@ -62,6 +62,7 @@ export const environment = {
   apiKey: 'YOUR-API-KEY-HERE'  // Your instructor will provide this
 };
 ```
+You can get an API key from [Google AI Studio](https://aistudio.google.com)
 
 ## Building the App
 
