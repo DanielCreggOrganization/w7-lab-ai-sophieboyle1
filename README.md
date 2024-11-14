@@ -423,11 +423,12 @@ graph TD
    - Check import paths
    - Make sure constructor is added
 
-## Finishing Features
-1. Add a "Copy Recipe" button
-2. Add loading animations
-3. Add error handling
-4. Add 3 more images
+## Aditional Features
+1. Add a "Copy Recipe" button - Copy to clipboard
+2. Add a button to select the AI model to use
+3. Add Ionic loading animations
+4. Add error handling
+5. Add 3 more images
 
 ## What You've Learned
 - Creating an Ionic app
